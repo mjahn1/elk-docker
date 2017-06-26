@@ -6,9 +6,13 @@
 # Run with:
 # docker-compose up
 
-elk:
-  build: .
-  ports:
+elk: 
+  build: "."
+  ports: 
     - "5601:5601"
     - "9200:9200"
     - "5044:5044"
+  ulimits: 
+    nofile: 
+      hard: 65536
+      soft: 65536
